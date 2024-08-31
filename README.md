@@ -9,3 +9,28 @@ The Redox project is an open-source, [QMK (Quantum Mechanical Keyboard Firmware)
 <img src="img/redox_V0.jpg" alt="Redox" width="600" style="border-radius:3%"/>
 </p>
 <h5 align="center">My first build</h5>
+
+## Building
+
+To customize the framework you should replace the qmk_firmware/redox folder with the one in this repository. Then you can build the firmware with the following command:
+
+```bash
+qmk config user.keyboard=redox/rev1
+qmk config user.keymap=default
+qmk compile
+```
+
+In order to flash the right Pro Micro you should uncomment `#define MASTER_LEFT` or `#define MASTER_RIGHT` in the `config.h` file.
+
+```c
+//#define MASTER_LEFT
+#define MASTER_RIGHT
+// #define EE_HANDS
+```
+
+## Flashing
+To flash the firmware you should use the following command:
+
+```bash
+qmk flash <.hex file>
+```
